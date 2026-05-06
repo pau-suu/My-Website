@@ -44,7 +44,6 @@
             text-decoration: none;
             color: #eaeaea;
             font-weight: 500;
-            transition: 0.3s;
         }
 
         nav a:hover {
@@ -72,10 +71,43 @@
             margin-left: 15px;
             color: #bdbdbd;
             font-size: 22px;
-            transition: 0.3s;
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide-up {
+            animation: slideUp 0.7s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        nav a {
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        nav a:hover {
+            transform: translateY(-2px);
+        }
+
+        .footer-socials a {
+            transition: transform 0.25s ease, color 0.25s ease;
         }
 
         .footer-socials a:hover {
+            transform: scale(1.2);
             color: #FF3B3B;
         }
     </style>
@@ -92,9 +124,9 @@
     </nav>
 </header>
 
-<main>
-    <h1>About Me</h1>
-    <p>I'm Pausuu — a creator who loves creating cool stuff for fun.</p>
+<main class="fade-in">
+    <h1 class="slide-up">About Me</h1>
+    <p>I'm Pausuu — a creator who loves building bold digital experiences.</p>
 </main>
 
 <footer>
