@@ -3,12 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pausuu | Portfolio</title>
+    <title>Pausuu | Home</title>
 
-    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-    <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     <style>
@@ -17,23 +14,18 @@
             font-family: 'Space Grotesk', sans-serif;
             background-color: #0a0a0a;
             color: #eaeaea;
-            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* HEADER */
         header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 80px;
-            background: #0a0a0a;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 25px 50px;
+            height: 80px;
             box-sizing: border-box;
-            z-index: 10;
         }
 
         .logo {
@@ -59,7 +51,6 @@
             color: #FF3B3B;
         }
 
-        /* MOBILE MENU */
         .hamburger {
             display: none;
             font-size: 28px;
@@ -68,63 +59,60 @@
 
         .mobile-nav {
             display: none;
+        }
+
+        main {
+            flex: 1;
+            padding: 40px 50px;
+            box-sizing: border-box;
+            display: flex;
             flex-direction: column;
-            background: #111;
-            padding: 20px;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            position: fixed;
-            top: 80px;
-            width: 100%;
-            z-index: 9;
         }
 
-        .mobile-nav a {
-            padding: 10px 0;
-            color: #eaeaea;
+        main h1 {
+            font-size: 90px;
+            margin: 0;
+        }
+
+        main p {
+            margin-top: 15px;
+            max-width: 600px;
+            color: #bdbdbd;
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        .buttons a {
+            display: inline-block;
+            padding: 12px 28px;
+            margin: 0 10px;
+            border-radius: 6px;
             text-decoration: none;
-            font-size: 18px;
+            font-weight: 600;
+            transition: 0.3s;
         }
 
-        .mobile-nav a:hover {
+        .btn-primary {
+            background-color: #FF3B3B;
+            color: #0a0a0a;
+        }
+
+        .btn-outline {
+            border: 2px solid #FF3B3B;
             color: #FF3B3B;
         }
 
-        /* SECTIONS */
-        .section {
-            display: none;
-            height: calc(100vh - 140px);
-            padding: 120px 50px 40px;
-            overflow-y: auto;
-            box-sizing: border-box;
-            animation: fade 0.4s ease;
+        .btn-outline:hover {
+            background-color: #FF3B3B;
+            color: #0a0a0a;
         }
 
-        /* Default visible section */
-        #home {
-            display: block;
-        }
-
-        /* Show only the targeted section */
-        .section:target {
-            display: block;
-        }
-
-        /* Hide home ONLY when another section is targeted */
-        :target:not(#home) ~ #home {
-            display: none;
-        }
-
-        @keyframes fade {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* FOOTER */
         footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
             height: 60px;
             background: #0d0d0d;
             color: #bdbdbd;
@@ -133,7 +121,6 @@
             align-items: center;
             padding: 0 40px;
             box-sizing: border-box;
-            z-index: 10;
         }
 
         .footer-socials a {
@@ -147,7 +134,6 @@
             color: #FF3B3B;
         }
 
-        /* RESPONSIVE */
         @media (max-width: 800px) {
             nav {
                 display: none;
@@ -155,74 +141,38 @@
             .hamburger {
                 display: block;
             }
-            #home h1 {
+            main h1 {
                 font-size: 60px;
             }
         }
     </style>
 </head>
-
 <body>
 
 <header>
     <div class="logo">PAUSUU</div>
 
     <nav>
-        <a href="#home">Home</a>
-        <a href="#projects">Projects</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
     </nav>
 
-    <div class="hamburger" onclick="
-        document.getElementById('mobileNav').style.display =
-        document.getElementById('mobileNav').style.display === 'flex' ? 'none' : 'flex';
-    ">
+    <div class="hamburger">
         <i class="fa-solid fa-bars"></i>
     </div>
 </header>
 
-<div class="mobile-nav" id="mobileNav">
-    <a href="#home" onclick="this.parentElement.style.display='none'">Home</a>
-    <a href="#projects" onclick="this.parentElement.style.display='none'">Projects</a>
-    <a href="#about" onclick="this.parentElement.style.display='none'">About</a>
-    <a href="#contact" onclick="this.parentElement.style.display='none'">Contact</a>
-</div>
-
-<!-- HOME -->
-<section id="home" class="section">
+<main>
     <h1>Pausuu</h1>
     <p>Combining work, passion, and creativity to build entertaining experiences.</p>
 
     <div class="buttons">
-        <a href="#projects" class="btn-primary">View Projects</a>
-        <a href="#about" class="btn-outline">About Me</a>
+        <a href="projects.html" class="btn-primary">View Projects</a>
+        <a href="about.html" class="btn-outline">About Me</a>
     </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects" class="section">
-    <h1>Projects</h1>
-    <p>Here are some of the things I'm working on. More coming soon.</p>
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="section">
-    <h1>About Me</h1>
-    <p>I'm Pausuu — a creator who loves building bold digital experiences.</p>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="section">
-    <h1>Contact</h1>
-    <p>You can reach me here:</p>
-
-    <p style="font-size:20px; line-height:1.8;">
-        <i class="fa-brands fa-discord" style="color:#FF3B3B;"></i> @pausuu<br>
-        <i class="fa-brands fa-x-twitter" style="color:#FF3B3B;"></i> @pausuuofficial<br>
-        <i class="fa-solid fa-envelope" style="color:#FF3B3B;"></i> pausuubusiness@gmail.com
-    </p>
-</section>
+</main>
 
 <footer>
     <div>© 2026 Pausuu</div>
