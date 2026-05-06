@@ -256,6 +256,7 @@
 function showSection(id) {
     document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
     document.getElementById(id).classList.add('active');
+    window.scrollTo(0, 0);
 }
 
 function toggleMenu() {
@@ -264,6 +265,5 @@ function toggleMenu() {
 }
 </script>
 
-<script src="script.js"></script>
 </body>
 </html>
