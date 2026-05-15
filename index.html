@@ -47,34 +47,6 @@
       max-width: 600px;
       line-height: 1.5;
     }
-
-    /* AUDIO CONTROLS (TOP LEFT) */
-    .audio-controls {
-      position: fixed;
-      top: 25px;
-      left: 25px;
-      display: flex;
-      align-items: center;
-      background: #ffffff10;
-      border: 1px solid #ffffff20;
-      padding: 10px 14px;
-      border-radius: 8px;
-      backdrop-filter: blur(6px);
-    }
-
-    .icon-btn {
-      width: 28px;
-      height: 28px;
-      cursor: pointer;
-      opacity: 0.8;
-      transition: 0.2s ease;
-      filter: invert(1);
-    }
-
-    .icon-btn:hover {
-      opacity: 1;
-      transform: scale(1.1);
-    }
   </style>
 </head>
 
@@ -84,50 +56,6 @@
     <h1>Coming Soon</h1>
     <p>The site is currently being built. Check back soon.</p>
   </div>
-
-  <!-- AUDIO ELEMENT -->
-  <audio id="bgMusic" loop muted></audio>
-
-  <!-- AUDIO CONTROLS -->
-  <div class="audio-controls">
-    <img id="muteBtn" class="icon-btn" src="https://raw.githubusercontent.com/pausuu-assets/icons/main/volume-off.svg">
-  </div>
-
-  <script>
-    // SONG LIST
-    const songs = [
-      "/music/song-one.mp3",
-      "/music/song-two.mp3",
-      "/music/song-three.mp3"
-    ];
-
-    // PICK RANDOM SONG
-    const randomSong = songs[Math.floor(Math.random() * songs.length)];
-
-    const music = document.getElementById("bgMusic");
-    const muteBtn = document.getElementById("muteBtn");
-
-    // LOAD RANDOM SONG
-    music.src = randomSong;
-    music.volume = 0.5;
-
-    // ICONS (HOSTED SVGs)
-    const iconMuted = "https://raw.githubusercontent.com/pausuu-assets/icons/main/volume-off.svg";
-    const iconVolume = "https://raw.githubusercontent.com/pausuu-assets/icons/main/volume-on.svg";
-
-    // MUTE BUTTON
-    muteBtn.onclick = () => {
-      // If muted, unmute AND play (fixes autoplay block)
-      if (music.muted) {
-        music.muted = false;
-        music.play();
-        muteBtn.src = iconVolume;
-      } else {
-        music.muted = true;
-        muteBtn.src = iconMuted;
-      }
-    };
-  </script>
 
 </body>
 </html>
