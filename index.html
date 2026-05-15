@@ -48,11 +48,11 @@
       line-height: 1.5;
     }
 
-    /* AUDIO CONTROLS */
+    /* AUDIO CONTROLS (TOP LEFT) */
     .audio-controls {
       position: fixed;
-      bottom: 25px;
-      right: 25px;
+      top: 25px;
+      left: 25px;
       display: flex;
       align-items: center;
       gap: 12px;
@@ -63,24 +63,21 @@
       backdrop-filter: blur(6px);
     }
 
-    .audio-controls button {
-      background: #ffffff15;
-      border: 1px solid #ffffff30;
-      color: #fff;
-      padding: 6px 12px;
-      border-radius: 6px;
+    .icon-btn {
+      background: none;
+      border: none;
       cursor: pointer;
+      padding: 0;
+      width: 28px;
+      height: 28px;
+      filter: invert(1);
+      opacity: 0.8;
       transition: 0.2s ease;
     }
 
-    .audio-controls button:hover {
-      background: #ffffff25;
-      border-color: #ffffff50;
-    }
-
-    .audio-controls input[type="range"] {
-      width: 120px;
-      cursor: pointer;
+    .icon-btn:hover {
+      opacity: 1;
+      transform: scale(1.1);
     }
   </style>
 </head>
@@ -97,8 +94,7 @@
 
   <!-- AUDIO CONTROLS -->
   <div class="audio-controls">
-    <button id="muteBtn">Mute</button>
-    <input id="volumeSlider" type="range" min="0" max="1" step="0.01" value="0.5">
+    <img id="muteBtn" class="icon-btn" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/volumeup.svg">
   </div>
 
   <script>
@@ -114,26 +110,24 @@
 
     const music = document.getElementById("bgMusic");
     const muteBtn = document.getElementById("muteBtn");
-    const volumeSlider = document.getElementById("volumeSlider");
 
     // LOAD RANDOM SONG
     music.src = randomSong;
     music.volume = 0.5;
 
-    // TRY TO AUTOPLAY (may require user interaction)
+    // TRY AUTOPLAY
     music.play().catch(() => {
       console.log("Autoplay blocked until user interacts.");
     });
 
+    // ICONS
+    const iconVolume = "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/volumeup.svg";
+    const iconMuted = "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/volumemute.svg";
+
     // MUTE BUTTON
     muteBtn.onclick = () => {
       music.muted = !music.muted;
-      muteBtn.textContent = music.muted ? "Unmute" : "Mute";
-    };
-
-    // VOLUME SLIDER
-    volumeSlider.oninput = () => {
-      music.volume = volumeSlider.value;
+      muteBtn.src = music.muted ? iconMuted : iconVolume;
     };
   </script>
 
