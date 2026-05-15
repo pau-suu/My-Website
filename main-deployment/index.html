@@ -8,6 +8,7 @@
   <style>
     html, body {
       overflow: hidden;
+      height: 100%;
     }
 
     * {
@@ -20,15 +21,17 @@
     body {
       background: #0d0d0d;
       color: #fff;
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
+      height: 100vh;
+      width: 100vw;
     }
 
+    /* NAVIGATION */
     nav {
       position: fixed;
-      top: 25px;
-      right: 35px;
+      top: 20px;   /* reduced from 25px */
+      right: 25px; /* reduced from 35px */
       display: flex;
       gap: 25px;
       z-index: 10;
@@ -48,6 +51,7 @@
       border-bottom: 1px solid #ffffff60;
     }
 
+    /* CENTER CONTENT */
     .center {
       flex: 1;
       display: flex;
@@ -55,9 +59,10 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 20px;
+      padding: 0; /* removed padding to prevent overflow */
     }
 
+    /* ZOOM ANIMATION */
     @keyframes zoomPulse {
       0% { transform: scale(1); opacity: 0.85; }
       50% { transform: scale(1.08); opacity: 1; }
