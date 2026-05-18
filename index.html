@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>pausuu.xyz</title>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
 
   <style>
     body {
       margin: 0;
-      background: #0d0d0d;
+      background: #000;
       color: #fff;
       font-family: "Inter", sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
+      overflow-x: hidden;
     }
 
     /* HEADER */
@@ -28,15 +31,13 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: #0d0d0d;
-      z-index: 20;
+      z-index: 100;
+      background: transparent;
     }
 
     .logo {
       font-size: 1.2rem;
-      color: #fff;
       opacity: 0.9;
-      letter-spacing: 0.5px;
     }
 
     nav {
@@ -49,42 +50,77 @@
       text-decoration: none;
       font-size: 1rem;
       opacity: 0.85;
-      transition: 0.2s ease;
-      border-bottom: 1px solid transparent;
+      transition: 0.2s;
     }
 
     nav a:hover {
       opacity: 1;
-      border-bottom: 1px solid #ffffff60;
     }
 
-    /* DIVIDER */
-    .divider {
-      margin-top: 90px;
-      width: 100%;
-      border: none;
-      border-top: 1px solid #ffffff20;
-    }
-
-    /* CENTER CONTENT */
-    .center {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
+    /* HERO SECTION */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      width: 100%;
+      position: relative;
     }
 
-    .center h1 {
-      font-size: 3rem;
+    .hero h1 {
+      font-size: 4rem;
       margin: 0;
-      opacity: 0.95;
+      position: relative;
+      z-index: 2;
     }
 
-    .center p {
-      margin-top: 10px;
-      font-size: 1.2rem;
+    .hero p {
+      margin-top: 15px;
+      font-size: 1.3rem;
       opacity: 0.7;
+      z-index: 2;
+    }
+
+    /* PARTICLES */
+    .particle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: #ffffff40;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(1px);
+    }
+
+    /* SECTION TITLES */
+    .section {
+      padding: 120px 0;
+      text-align: center;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 40px;
+    }
+
+    /* ICON ROWS */
+    .icons {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .icons img {
+      width: 70px;
+      opacity: 0.85;
+      transition: 0.2s;
+    }
+
+    .icons img:hover {
+      opacity: 1;
+      transform: scale(1.1);
     }
   </style>
 </head>
@@ -93,19 +129,106 @@
 
 <header>
   <div class="logo">pausuu.xyz</div>
-
   <nav>
     <a href="/">Home</a>
-    <a href="/contact/">Contact</a>
+    <a href="/projects">Projects</a>
   </nav>
 </header>
 
-<hr class="divider">
+<!-- HERO -->
+<section class="hero">
+  <h1 id="nameText">pausuu</h1>
+  <p>I'm pausuu, a self-taught editor, programmer, and developer<br>
+  I like editing and coding for fun</p>
+</section>
 
-<div class="center">
-  <h1>pausuu</h1>
-  <p>clean. minimal. intentional.</p>
-</div>
+<!-- SOFTWARES -->
+<section class="section">
+  <h2>Softwares I Use</h2>
+  <div class="icons">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/premierepro/premierepro-original.svg">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aftereffects/aftereffects-original.svg">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/blender/blender-original.svg">
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section">
+  <h2>Contact Me</h2>
+  <div class="icons">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/twitter/twitter-original.svg">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/discord/discord-original.svg">
+  </div>
+</section>
+
+<script>
+  /* LENIS SMOOTH SCROLL */
+  const lenis = new Lenis({
+    duration: 1.2,
+    smooth: true,
+    direction: "vertical",
+    gestureDirection: "vertical",
+    smoothTouch: false,
+  });
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+
+  /* GSAP FADE-IN ANIMATIONS */
+  gsap.from(".hero h1", { opacity: 0, y: 40, duration: 1.2, ease: "power3.out" });
+  gsap.from(".hero p", { opacity: 0, y: 20, duration: 1.2, delay: 0.3, ease: "power3.out" });
+
+  gsap.utils.toArray(".section").forEach((section) => {
+    gsap.from(section, {
+      scrollTrigger: {
+        trigger: section,
+        start: "top 80%",
+      },
+      opacity: 0,
+      y: 60,
+      duration: 1.2,
+      ease: "power3.out",
+    });
+  });
+
+  /* PARTICLE EFFECT AROUND NAME */
+  const hero = document.querySelector(".hero");
+  const nameText = document.getElementById("nameText");
+
+  function createParticle() {
+    const particle = document.createElement("div");
+    particle.classList.add("particle");
+
+    const size = Math.random() * 6 + 3;
+    particle.style.width = size + "px";
+    particle.style.height = size + "px";
+
+    const x = nameText.offsetLeft + nameText.offsetWidth / 2 + (Math.random() - 0.5) * 200;
+    const y = nameText.offsetTop + (Math.random() - 0.5) * 150;
+
+    particle.style.left = x + "px";
+    particle.style.top = y + "px";
+
+    hero.appendChild(particle);
+
+    gsap.to(particle, {
+      opacity: 0,
+      y: -40,
+      x: (Math.random() - 0.5) * 80,
+      duration: 1.5,
+      ease: "power1.out",
+      onComplete: () => particle.remove(),
+    });
+  }
+
+  setInterval(createParticle, 200);
+</script>
 
 </body>
 </html>
