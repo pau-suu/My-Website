@@ -5,13 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>pausuu.xyz</title>
 
-  <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -21,7 +18,6 @@
       overflow-x: hidden;
     }
 
-    /* HEADER */
     header {
       position: fixed;
       top: 0;
@@ -54,35 +50,29 @@
       transition: 0.2s;
     }
 
-    nav a:hover {
-      opacity: 1;
-    }
+    nav a:hover { opacity: 1; }
 
-    /* MAIN CONTENT */
     .content {
       padding: 160px 20px 80px;
-      text-align: center;
       max-width: 900px;
       margin: 0 auto;
+      text-align: center;
     }
 
-    .content h1 {
-      font-size: 2.4rem;
-      margin-bottom: 20px;
-      position: relative;
-      display: inline-block;
-      font-weight: 400;
+    .intro-line {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
     }
 
-    .intro-prefix {
-      font-weight: 400;
-    }
-
-    #nameText {
+    .intro-line .name {
       font-weight: 700;
     }
 
-    .content p {
+    .intro-line .prefix {
+      font-weight: 400;
+    }
+
+    .intro-sub {
       font-size: 1.2rem;
       opacity: 0.8;
       margin-bottom: 60px;
@@ -113,7 +103,6 @@
       transform: scale(1.08);
     }
 
-    /* PARTICLES */
     .particle {
       position: absolute;
       width: 6px;
@@ -138,14 +127,13 @@
 
 <div class="content">
 
-  <!-- INTRO -->
-  <h1>
-    <span class="intro-prefix">I'm </span><span id="nameText">pausuu</span>
-  </h1>
-  <p id="descText">
-    a self-taught editor, programmer, and developer<br>
+  <!-- INTRO EXACTLY LIKE YOU WANT -->
+  <div class="intro-line" id="introLine">
+    <span class="prefix">I'm </span><span class="name" id="nameText">pausuu</span>, a self-taught editor, programmer, and developer
+  </div>
+  <div class="intro-sub" id="descText">
     I like editing and coding for fun
-  </p>
+  </div>
 
   <!-- SOFTWARES -->
   <h2>Softwares I Use</h2>
@@ -153,11 +141,9 @@
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Unity">
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code">
 
-    <!-- NEW Premiere Pro Logo -->
-    <img src="https://cdn.simpleicons.org/adobepremierepro/9999ff" alt="Premiere Pro">
-
-    <!-- NEW After Effects Logo -->
-    <img src="https://cdn.simpleicons.org/adobeaftereffects/9999ff" alt="After Effects">
+    <!-- Replace these with your own new logo files -->
+    <img src="premiere-new.png" alt="Premiere Pro">
+    <img src="aftereffects-new.png" alt="After Effects">
 
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/blender/blender-original.svg" alt="Blender">
   </div>
@@ -165,13 +151,8 @@
   <!-- CONTACT -->
   <h2>Contact Me</h2>
   <div class="icons">
-    <!-- Email -->
     <img src="https://cdn.simpleicons.org/gmail/ffffff" alt="Email">
-
-    <!-- X (Twitter) -->
     <img src="https://cdn.simpleicons.org/x/ffffff" alt="X">
-
-    <!-- Discord -->
     <img src="https://cdn.simpleicons.org/discord/5865F2" alt="Discord">
   </div>
 
