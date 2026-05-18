@@ -3,35 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact – Pausuu</title>
+  <title>Contact — pausuu.xyz</title>
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Inter", sans-serif;
-    }
-
     body {
+      margin: 0;
       background: #0d0d0d;
       color: #fff;
+      font-family: "Inter", sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 40px 20px;
+      height: 100vh;
       overflow: hidden;
     }
 
-    nav {
+    header {
       position: fixed;
-      top: 20px;
-      right: 25px;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 25px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #0d0d0d;
+      z-index: 20;
+    }
+
+    .logo {
+      font-size: 1.2rem;
+      color: #fff;
+      opacity: 0.9;
+      letter-spacing: 0.5px;
+    }
+
+    nav {
       display: flex;
       gap: 25px;
-      z-index: 10;
     }
 
     nav a {
@@ -48,75 +57,52 @@
       border-bottom: 1px solid #ffffff60;
     }
 
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-      text-align: center;
-    }
-
-    p {
-      font-size: 1.1rem;
-      opacity: 0.8;
-      text-align: center;
-      max-width: 600px;
-      margin-bottom: 30px;
+    .divider {
+      margin-top: 90px;
+      width: 100%;
+      border: none;
+      border-top: 1px solid #ffffff20;
     }
 
     .contact-box {
-      background: #ffffff10;
-      border: 1px solid #ffffff20;
-      padding: 25px 35px;
-      border-radius: 10px;
-      text-align: left;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      text-align: center;
       width: 100%;
-      max-width: 400px;
     }
 
-    .item {
-      margin: 15px 0;
-      font-size: 1rem;
+    .contact-box h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
     }
 
-    .label {
-      opacity: 0.6;
-      font-size: 0.9rem;
-    }
-
-    .value {
-      font-size: 1.1rem;
-      margin-top: 3px;
+    .contact-box p {
+      font-size: 1.2rem;
+      opacity: 0.8;
+      margin: 8px 0;
     }
   </style>
 </head>
 
 <body>
 
+<header>
+  <div class="logo">pausuu.xyz</div>
+
   <nav>
-    <a href="/">Home</a>
-    <a href="/contact">Contact</a>
-    <a href="/links">Links</a>
-    <a href="/credits">Credits</a>
+    <a href="/main-deployment">Home</a>
+    <a href="/main-deployment/contact">Contact</a>
   </nav>
+</header>
 
-  <h1>Contact Me</h1>
-  <p>Reach out through any of the platforms below.</p>
+<hr class="divider">
 
-  <div class="contact-box">
-    <div class="item">
-      <div class="label">Discord</div>
-      <div class="value">@pausuu</div>
-    </div>
-
-    <div class="item">
-      <div class="label">Twitter</div>
-      <div class="value">@pausuu</div>
-    </div>
-
-    <div class="item">
-      <div class="label">Email</div>
-      <div class="value">pausuubusiness@gmail.com</div>
-    </div>
-  </div>
+<div class="contact-box">
+  <h2>Contact</h2>
+  <p>Discord: @pausuu</p>
+  <p>Email: your@email.com</p>
+</div>
 
 </body>
 </html>
